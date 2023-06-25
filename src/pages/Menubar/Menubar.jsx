@@ -48,7 +48,7 @@ const Menubar = () => {
       >
         My Toys
       </NavLink>
-     
+
       <NavLink
         to="/addtoy"
         className={({ isActive }) =>
@@ -71,7 +71,7 @@ const Menubar = () => {
             : "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-blueGray-700 hover:text-purple-600 hover:border-b-2 hover:border-purple-600 "
         }
       >
-       log in
+        log in
       </NavLink>
       <NavLink
         to="/signup"
@@ -84,23 +84,23 @@ const Menubar = () => {
         Sign up
       </NavLink>
       <NavLink className="py-1 px-1 m-1 flex items-center text-xs uppercase font-bold leading-snug  text-neutral-700 dark:text-neutral-200 hover:opacity-75">
-                      <i className=" rounded text-lg leading-lg  text-neutral-700 dark:text-neutral-200 opacity-75">
-                        <div className="group flex relative">
-                          <span className=" text-white px-2 py-1">
-                            <img
-                              className={`w-8 bg-white  rounded-full border border-gray-100 shadow-sm`}
-                            src="https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg?w=900&t=st=1687653463~exp=1687654063~hmac=f20cd423e1bc075293ce44b58462d8ad6fdbf7856daf9b7c23cc95fec9e467be"
-                            />
-                          </span>
-                          <span
-                            className="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+        <i className=" rounded text-lg leading-lg  text-neutral-700 dark:text-neutral-200 opacity-75">
+          <div className="group flex relative">
+            <span className=" text-white px-2 py-1">
+              <img
+                className={`w-8 bg-white  rounded-full border border-gray-100 shadow-sm`}
+                src="https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg?w=900&t=st=1687653463~exp=1687654063~hmac=f20cd423e1bc075293ce44b58462d8ad6fdbf7856daf9b7c23cc95fec9e467be"
+              />
+            </span>
+            <span
+              className="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-1 mx-auto"
-                          >
-                           Name
-                          </span>
-                        </div>
-                      </i>
-                    </NavLink>
+            >
+              Name
+            </span>
+          </div>
+        </i>
+      </NavLink>
     </>
   );
   return (
@@ -109,10 +109,11 @@ const Menubar = () => {
         <div className="bg-blueGray-200 px-2 md:px-4 shadow">
           <div className="container px-1 md:px-4 ">
             <div className="flex items-center justify-between py-4">
-              <Link to="/"><div className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase">
-               Decode construction 
-              </div></Link>
-              
+              <Link to="/">
+                <div className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase">
+                  Decode construction
+                </div>
+              </Link>
 
               <div className="hidden sm:flex sm:items-center">{navItems}</div>
 
