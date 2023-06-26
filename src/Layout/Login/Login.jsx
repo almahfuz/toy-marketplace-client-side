@@ -21,7 +21,7 @@ const Login = () => {
           <div class="w-full mx-auto px-20 flex-col items-center space-y-6">
             <h1 class="text-white font-bold text-4xl font-sans">
               {" "}
-              Decode construction To
+              Decode construction Toy
             </h1>
             <p class="text-white mt-1">
               {" "}
@@ -33,7 +33,7 @@ const Login = () => {
           <div class="w-full px-8 md:px-32 lg:px-24">
             <form class="bg-white rounded-md shadow-2xl p-5">
               <h1 class="text-gray-800 font-bold text-2xl mb-3">Log in</h1>
-              <div class="flex items-center border-2 mb-5 py-2 px-3 rounded-2xl">
+              <div class="flex items-center border-2 mb-5 py-2 px-2 rounded-2xl">
                
                 <input
                   id="email"
