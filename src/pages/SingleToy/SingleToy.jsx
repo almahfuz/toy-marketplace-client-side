@@ -15,8 +15,8 @@ const SingleToy = () => {
     AvailableQuantity,
   } = singleDataToy;
   return (
-    <div className="px-10 min-h-[calc(100vh-136px)]">
-      <div className="card lg:card-side bg-base-100 shadow-xl container m-auto grid grid-cols-2 gap-3">
+    <div className="px-10 pt-10 min-h-[calc(100vh-136px)]">
+      <div className="card lg:card-side bg-base-100 shadow-xl container m-auto grid grid-cols-1 md:grid-cols-2 gap-3">
         <figure>
           <img
             className=" object-cover w-full h-96"
@@ -26,12 +26,12 @@ const SingleToy = () => {
         </figure>
         <div className="card-body">
           <h2 className="card-title">{ToyName}</h2>
-          <p>Seller name : {SellerName}</p>
-          <p>seller email: {SellerEmail}</p>
-          <p>price: £{Price}</p>
-          <p>Rating: {Rating}</p>
-          <p>Available Quantity: {AvailableQuantity}</p>
-          <p> Detail Descriptions: {DetailDescription}</p>
+          <div>Seller name : {SellerName}</div>
+          <div>seller email: {SellerEmail}</div>
+          <div>price: £{Price}</div>
+          <div>Rating: {Rating}</div>
+          <div>Available Quantity: {AvailableQuantity}</div>
+          <div> Detail Descriptions: {DetailDescription}</div>
         </div>
       </div>
     </div>
