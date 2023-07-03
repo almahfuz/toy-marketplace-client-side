@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const AllToyData = ({ allToyData }) => {
   const {
@@ -7,11 +8,9 @@ const AllToyData = ({ allToyData }) => {
     ImagesURL,
     Price,
     Rating,
-    DetailDescription,
     SubCategory,
     AvailableQuantity,
   } = allToyData;
-  console.log(allToyData);
 
   return (
     <div className="cursor-pointer rounded-xl bg-white p-3 shadow-lg hover:shadow-xl">
@@ -46,10 +45,11 @@ const AllToyData = ({ allToyData }) => {
           </p>
 
           <div className="inline-flex rounded-xl">
-            <button class="btn btn-sm  bg-orange-100 py-1 px-3 focus:outline-none  hover:bg-orange-200">
-              {" "}
-              View Details{" "}
-            </button>
+            <Link to={`/singleToyDetails/${_id}`}>
+              <button class="btn btn-sm  bg-orange-100 py-1 px-3 focus:outline-none  hover:bg-orange-200">
+                View Details
+              </button>
+            </Link>
           </div>
         </div>
       </div>

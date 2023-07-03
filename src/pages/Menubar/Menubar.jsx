@@ -50,7 +50,7 @@ const Menubar = () => {
       </NavLink>
 
       <NavLink
-        to="/addtoy"
+        to="/AddedNewToy"
         className={({ isActive }) =>
           isActive
             ? "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-purple-600 border-b-2 border-purple-600   "
