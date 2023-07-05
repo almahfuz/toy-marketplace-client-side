@@ -1,9 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Menubar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
 
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   const navItems = (
     <>
       <NavLink
@@ -63,40 +72,43 @@ const Menubar = () => {
   );
   const LogSignBtn = (
     <>
-      <NavLink
-        to="/login"
-        className={({ isActive }) =>
-          isActive
-            ? "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-purple-600 border-b-2 border-purple-600   "
-            : "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-blueGray-700 hover:text-purple-600 hover:border-b-2 hover:border-purple-600 "
-        }
-      >
-        log in
-      </NavLink>
-      <NavLink
-        to="/signup"
-        className={({ isActive }) =>
-          isActive
-            ? "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-purple-600 border-b-2 border-purple-600   "
-            : "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase  text-blueGray-700 hover:text-purple-600 hover:border-b-2 hover:border-purple-600 "
-        }
-      >
-        Sign up
-      </NavLink>
+      {user?.email ? (
+        <NavLink
+          onClick={handleLogOut}
+          className={({ isActive }) =>
+            isActive
+              ? "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-purple-600 border-b-2 border-purple-600   "
+              : "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase  text-blueGray-700 hover:text-purple-600 hover:border-b-2 hover:border-purple-600 "
+          }
+        >
+          Log Out
+        </NavLink>
+      ) : (
+        <NavLink
+          to="/login"
+          className={({ isActive }) =>
+            isActive
+              ? "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-purple-600 border-b-2 border-purple-600   "
+              : "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-blueGray-700 hover:text-purple-600 hover:border-b-2 hover:border-purple-600 "
+          }
+        >
+          log in
+        </NavLink>
+      )}
       <NavLink className="py-1 px-1 m-1 flex items-center text-xs uppercase font-bold leading-snug  text-neutral-700 dark:text-neutral-200 hover:opacity-75">
         <i className=" rounded text-lg leading-lg  text-neutral-700 dark:text-neutral-200 opacity-75">
           <div className="group flex relative">
             <span className=" text-white px-2 py-1">
               <img
                 className={`w-8 bg-white  rounded-full border border-gray-100 shadow-sm`}
-                src="https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg?w=900&t=st=1687653463~exp=1687654063~hmac=f20cd423e1bc075293ce44b58462d8ad6fdbf7856daf9b7c23cc95fec9e467be"
+                src={user?.photoURL}
               />
             </span>
             <span
               className="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-1 mx-auto"
             >
-              Name
+              {user?.displayName}
             </span>
           </div>
         </i>
@@ -111,7 +123,7 @@ const Menubar = () => {
             <div className="flex items-center justify-between py-4">
               <Link to="/">
                 <div className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase">
-                  Decode construction
+                  Decode construction toy
                 </div>
               </Link>
 

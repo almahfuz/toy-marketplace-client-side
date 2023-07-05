@@ -1,17 +1,53 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MyToyTab from "./MyToyTab";
+import Swal from 'sweetalert2'
 
 const MyToy = () => {
   // const { user } = useContext(AuthContext);
   const [myToyTab, setMyToyTab] = useState([]);
-
+  const [deletedToy, setDeletedToy] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:5000/alltoy")
       .then((res) => res.json())
       .then((data) => setMyToyTab(data));
   }, []);
+
+  const handleDelete = _id => {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch(`http://localhost:5000/mytoy/${_id}`, {
+               method: 'DELETE'
+            })
+               .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+
+                    if (data.deletedCount > 0) {
+
+                        Swal.fire(
+                            'Deleted!',
+                            'Your Toy has been deleted.',
+                            'success'
+                        )
+                        const remaining = deletedToy.filter(toy => toy._id !== _id);
+                        setDeletedToy(remaining);
+                    }
+                })
+          
+
+        }
+    })
+}
   return (
     <div>
       <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
@@ -29,7 +65,7 @@ const MyToy = () => {
               </th>
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">
                 {" "}
-                 Descriptions
+                Descriptions
               </th>
               <th
                 scope="col"
@@ -39,7 +75,11 @@ const MyToy = () => {
           </thead>
           <tbody className="divide-y divide-gray-100 border-t border-gray-100 overflow-y-auto">
             {myToyTab.map((myToyTab) => (
-              <MyToyTab key={myToyTab._id} myToyTab={myToyTab}></MyToyTab>
+              <MyToyTab
+                key={myToyTab._id}
+                myToyTab={myToyTab}
+                handleDelete={handleDelete}
+              ></MyToyTab>
             ))}
           </tbody>
         </table>

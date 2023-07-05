@@ -1,9 +1,40 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "./login.css";
 import Sociallogin from "../socialLogin/Sociallogin";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../pages/Provider/AuthProvider";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
+  const handleWithLogIn = (e) => {
+    e.preventDefault();
+    const isEmailValid = /@/.test(email);
+    if (
+      !isEmailValid &&
+      !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)
+    ) {
+      setError(" Email and password doesn't match");
+      return;
+    }
+    if ((email, password)) {
+      signIn(email, password)
+        .then((result) => {
+          console.log(result.user);
+          navigate(from, { replace: true });
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+    }
+  };
   return (
     <div>
       <div class="h-screen flex">
@@ -36,7 +67,7 @@ const Login = () => {
               <div class="flex items-center border-2 mb-5 py-2 px-2 rounded-2xl">
                
                 <input
-                  id="email"
+                    onChange={(e) => setEmail(e.target.value)}
                   class=" pl-2 w-full outline-none border-none"
                   type="email"
                   name="email"
@@ -46,14 +77,14 @@ const Login = () => {
               <div class="flex items-center border-2 mb-5 py-2 px-3 rounded-2xl ">
                
                 <input
+                  onChange={(e) => setPassword(e.target.value)}
                   class="pl-2 w-full outline-none border-none"
                   type="password"
-                  name="password"
-                  id="password"
                   placeholder="Password"
                 />
               </div>
               <button
+                 onClick={handleWithLogIn}
                 type="submit"
                 class="block w-full bg-indigo-600 mt-5 py-2 rounded-2xl hover:bg-indigo-700 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2"
               >
