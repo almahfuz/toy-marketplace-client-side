@@ -95,21 +95,30 @@ const Menubar = () => {
           log in
         </NavLink>
       )}
+      <NavLink
+        className={({ isActive }) =>
+          isActive
+            ? "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-blueGray-700  border-b-2  "
+            : "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-blueGray-700 "
+        }
+      >
+        {user?.displayName}
+      </NavLink>
       <NavLink className="py-1 px-1 m-1 flex items-center text-xs uppercase font-bold leading-snug  text-neutral-700 dark:text-neutral-200 hover:opacity-75">
         <i className=" rounded text-lg leading-lg  text-neutral-700 dark:text-neutral-200 opacity-75">
           <div className="group flex relative">
-            <span className=" text-white px-2 py-1">
+            <span className="bg-blueGray-200 text-white px-2 py-1 outline-none ">
               <img
-                className={`w-8 bg-white  rounded-full border border-gray-100 shadow-sm`}
+                className={`h-8 w-8  rounded-full outline-none border-none  shadow-sm`}
                 src={user?.photoURL}
               />
             </span>
-            <span
+            {/* <span
               className="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-1 mx-auto"
             >
               {user?.displayName}
-            </span>
+            </span> */}
           </div>
         </i>
       </NavLink>

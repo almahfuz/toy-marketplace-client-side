@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./login.css";
+import Swal from 'sweetalert2'
 import Sociallogin from "../socialLogin/Sociallogin";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../pages/Provider/AuthProvider";
@@ -28,6 +29,14 @@ const Login = () => {
       signIn(email, password)
         .then((result) => {
           console.log(result.user);
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'login successful',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          // navigate("/");
           navigate(from, { replace: true });
         })
         .catch((error) => {

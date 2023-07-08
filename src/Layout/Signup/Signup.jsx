@@ -2,10 +2,11 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Sociallogin from "../socialLogin/Sociallogin";
 import "./Singup.css";
+import Swal from 'sweetalert2'
 import { AuthContext } from "../../pages/Provider/AuthProvider";
 
 const Signup = () => {
-  const { registerCreateUser, ProfileUserInfo} = useContext(AuthContext);
+  const { registerCreateUser, ProfileUserInfo } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -14,7 +15,6 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  
   const handleWithRegistration = (e) => {
     e.preventDefault();
     // console.log(name, email, password);
@@ -26,7 +26,24 @@ const Signup = () => {
       registerCreateUser(email, password)
         .then((result) => {
           console.log(result.user);
-          // const createdUser = result.user;
+          ProfileUserInfo(displayName, photoURL)
+            .then(() => {
+              console.log("profile updated successfully ");
+              setDisplayName(displayName);
+              setPhotoURL(photoURL);
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'create a new user ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // navigate("/");
+            })
+            .catch((err) => {
+              console.log(err.message);
+            });
+
           navigate("/");
           setDisplayName(displayName);
           //  console.log(result.user);
@@ -35,24 +52,21 @@ const Signup = () => {
           console.log(err.message);
         });
     }
-    if ((displayName, photoURL)) {
-      ProfileUserInfo(displayName, photoURL)
-        .then(() => {
-          console.log('profile updated successfully ');
-          // navigate("/");
-          setDisplayName(displayName);
-          setPhotoURL(photoURL)
-          //  console.log(result.user);
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
-    }
-
-
+    // if ((displayName, photoURL)) {
+    //   ProfileUserInfo(displayName, photoURL)
+    //     .then((result) => {
+    //       console.log(result.user);
+    //       console.log('profile updated successfully ');
+    //       // navigate("/");
+    //       setDisplayName(displayName);
+    //       setPhotoURL(photoURL)
+    //       //  console.log(result.user);
+    //     })
+    //     .catch((err) => {
+    //       console.log(err.message);
+    //     });
+    // }
   };
-
-   
 
   return (
     <div class="h-screen flex">
