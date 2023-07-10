@@ -59,7 +59,7 @@ const MyToyTab = ({ myToyTab,handleDelete }) => {
               </a>
               </button>
             </Link>
-            <Link to={`/updateToy/${_id}`}>
+            <Link to={`/toyData/${_id}`}>
             <button className=" focus:outline-none">
               <a x-data="{ tooltip: 'Edit' }">
                 <svg
