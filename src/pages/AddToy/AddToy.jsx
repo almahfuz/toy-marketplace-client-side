@@ -30,7 +30,7 @@ const AddToy = () => {
     };
     console.log(AddedNewToy);
 
-    fetch("http://localhost:5000/AddedNewToy", {
+    fetch("https://toy-market-sever-omega.vercel.app/AddedNewToy", {
       method: "POST",
       headers: {
         "content-type": "application/json",

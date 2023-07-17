@@ -39,6 +39,19 @@ const Menubar = () => {
       </NavLink>
 
       <NavLink
+        to="/alltoy"
+        className={({ isActive }) =>
+          isActive
+            ? "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-purple-600 border-b-2 border-purple-600   "
+            : "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-blueGray-700 hover:text-purple-600 hover:border-b-2 hover:border-purple-600 "
+        }
+      >
+       Gallery
+      </NavLink>
+
+      {user?.email ? (
+        <>
+           <NavLink
         to="/allOfToy"
         className={({ isActive }) =>
           isActive
@@ -48,9 +61,6 @@ const Menubar = () => {
       >
         All Toys
       </NavLink>
-
-      {user?.email ? (
-        <>
           <NavLink
             to="/mytoy"
             className={({ isActive }) =>

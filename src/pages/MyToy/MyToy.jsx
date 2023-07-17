@@ -10,7 +10,7 @@ const MyToy = () => {
   const [deletedToy, setDeletedToy] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/alltoy")
+    fetch("https://toy-market-sever-omega.vercel.app/alltoy")
       .then((res) => res.json())
       .then((data) => setMyToyTab(data));
   }, []);
@@ -26,7 +26,7 @@ const MyToy = () => {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
-            fetch(`http://localhost:5000/mytoy/${_id}`, {
+            fetch(`https://toy-market-sever-omega.vercel.app/mytoy/${_id}`, {
                method: 'DELETE'
             })
                .then(res => res.json())

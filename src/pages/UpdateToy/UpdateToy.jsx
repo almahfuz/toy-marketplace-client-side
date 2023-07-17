@@ -43,7 +43,7 @@ const UpdateToy = () => {
     };
     console.log(UpdateToy);
 
-    fetch(`http://localhost:5000/ToyUpdate/${_id}`, {
+    fetch(`https://toy-market-sever-omega.vercel.app/ToyUpdate/${_id}`, {
       method: "PATCH",
 
       headers: {

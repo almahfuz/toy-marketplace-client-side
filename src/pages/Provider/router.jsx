@@ -27,6 +27,10 @@ const router = createBrowserRouter([
         element: <Blog />,
       },
       {
+        path: "/alltoy",
+        element: <AllToy/>,
+      },
+      {
         path: "/allOfToy",
         element: <AllOfToy/>,
       },
@@ -37,7 +41,7 @@ const router = createBrowserRouter([
       {
         path: "/singleToyDetails/:id",
         element: <SingleToy/>,
-        loader: ({params}) => fetch(`http://localhost:5000/singleToyDetails/${params.id}`)
+        loader: ({params}) => fetch(`https://toy-market-sever-omega.vercel.app/singleToyDetails/${params.id}`)
 
       },
       {
@@ -47,7 +51,7 @@ const router = createBrowserRouter([
       {
         path: "/toyData/:id",
         element: <UpdateToy />,
-        loader: ({params}) => fetch(`http://localhost:5000/toyData/${params.id}`)
+        loader: ({params}) => fetch(`https://toy-market-sever-omega.vercel.app/toyData/${params.id}`)
       },
       {
         path: "/login",

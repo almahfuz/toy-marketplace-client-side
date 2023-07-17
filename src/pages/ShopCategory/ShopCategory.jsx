@@ -10,7 +10,7 @@ const ShopCategory = () => {
   const [selectedCatagories, setSelectedCatagories] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/alltoy")
+    fetch("https://toy-market-sever-omega.vercel.app/alltoy")
       .then((res) => res.json())
       .then((data) => setSelectedCatagories(data));
       
