@@ -16,22 +16,22 @@ const Silder = () => {
         <div className="p-4  lg:p-10 rounded-2xl overflow-hidden bg-blue-50">
             <div className="flex items-center text-blue-500">
                 <p className="text-sm font-bold uppercase">
-                    Feature 1 & Feature 2  
+                   
                 </p>
             </div>
             <div className="mt-12  flex justify-center items-center hover:scale-105 transform ease-in-out duration-150 transition-transform">
-            <img className='w-full rounded-2xl object-cover h-auto' src={toy1} alt="" />
+            <img className='w-full  rounded-2xl object-cover h-96' src={toy1} alt="" />
             </div>
         </div>
 
         <div className="p-4 lg:p-10 rounded-2xl overflow-hidden bg-blue-50">
             <div className="flex items-center text-blue-500">
                 <p className="text-sm font-bold uppercase">
-                    Feature 1 & Feature 2  bg-pink-50  text-pink-500
+                   
                 </p>
             </div>
             <div className="mt-12 flex justify-center items-center hover:scale-105 transform ease-in-out duration-150 transition-transform">
-            <img className='w-full rounded-2xl object-cover h-auto' src={toy2} alt="" />
+            <img className='w-full rounded-2xl object-cover h-96 ' src={toy2} alt="" />
             </div>
         </div>
        

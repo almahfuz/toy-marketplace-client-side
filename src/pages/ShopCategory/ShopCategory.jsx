@@ -13,9 +13,8 @@ const ShopCategory = () => {
     fetch("https://toy-market-sever-omega.vercel.app/alltoy")
       .then((res) => res.json())
       .then((data) => setSelectedCatagories(data));
-      
   });
- 
+
   return (
     <div className="mt-5 md:mt-10">
       <div class=" capitalize text-2xl pt-10 pb-7 text-center font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
@@ -27,173 +26,46 @@ const ShopCategory = () => {
         <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
           <TabList className="grid grid-flow-col gap-2 text-center text-gray-500 bg-gray-100  p-1">
             <Tab className="flex justify-center py-4 focus:outline-none cursor-pointer rounded-lg">
-              Main Catagories 1
+              Drilling Toy
             </Tab>
             <Tab className="flex justify-center py-4 focus:outline-none cursor-pointer rounded-lg">
-              Main Catagories 2
+              Wood Toy
             </Tab>
             <Tab className="flex justify-center py-4 focus:outline-none cursor-pointer rounded-lg">
-              Main Catagories 3
+              Building Block
             </Tab>
           </TabList>
+
           <TabPanel>
-            <Tabs
-              defaultIndex={tabIndex}
-              onSelect={(index) => setTabIndex(index)}
-            >
-              <TabList className="grid grid-flow-col text-center gap-2 text-gray-500 bg-gray-100  p-1">
-                <Tab className="flex justify-center py-4 focus:outline-none cursor-pointer rounded-lg">
-                  Main Catagorieds 1 with Sub-1
-                </Tab>
-                <Tab className="flex justify-center py-4 focus:outline-none cursor-pointer rounded-lg">
-                  Main Catagorieds 1 with Sub-2
-                </Tab>
-                <Tab className="flex justify-center py-4 focus:outline-none cursor-pointer rounded-lg">
-                  Main Catagorieds 1 with Sub-3
-                </Tab>
-              </TabList>
-
-              {/* main 1-1 */}
-
-              <TabPanel>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
-                  {selectedCatagories.slice(0,3).map((CatagoriesData) => (
-                    <ShopData
-                      key={CatagoriesData._id}
-                      CatagoriesData={CatagoriesData}
-                    ></ShopData>
-                  ))}
-                </div>
-              </TabPanel>
-              {/* main 1-2 */}
-              <TabPanel>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
-                  {selectedCatagories.slice(0,3).map((CatagoriesData) => (
-                    <ShopData
-                      key={CatagoriesData._id}
-                      CatagoriesData={CatagoriesData}
-                    ></ShopData>
-                  ))}
-                </div>
-              </TabPanel>
-              {/* main 1-3 */}
-              <TabPanel>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
-                  {selectedCatagories.slice(0,3).map((CatagoriesData) => (
-                    <ShopData
-                      key={CatagoriesData._id}
-                      CatagoriesData={CatagoriesData}
-                    ></ShopData>
-                  ))}
-                </div>
-              </TabPanel>
-            </Tabs>
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
+              {selectedCatagories.slice(4, 7).map((CatagoriesData) => (
+                <ShopData
+                  key={CatagoriesData._id}
+                  CatagoriesData={CatagoriesData}
+                ></ShopData>
+              ))}
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
+              {selectedCatagories.slice(1, 4).map((CatagoriesData) => (
+                <ShopData
+                  key={CatagoriesData._id}
+                  CatagoriesData={CatagoriesData}
+                ></ShopData>
+              ))}
+            </div>
           </TabPanel>
 
-          {/* main 2  */}
           <TabPanel>
-            <Tabs
-              defaultIndex={tabIndex}
-              onSelect={(index) => setTabIndex(index)}
-            >
-              <TabList className="grid grid-flow-col text-center gap-2 text-gray-500 bg-gray-100  p-1">
-                <Tab className="flex justify-center py-4 focus:outline-none cursor-pointer rounded-lg">
-                  Main Catagorieds 2 with Sub-1
-                </Tab>
-                <Tab className="flex justify-center py-4 focus:outline-none cursor-pointer rounded-lg">
-                  Main Catagorieds 2 with Sub-2
-                </Tab>
-                <Tab className="flex justify-center py-4 focus:outline-none cursor-pointer rounded-lg">
-                  Main Catagorieds 2 with Sub-3
-                </Tab>
-              </TabList>
-              {/* main 2-1 */}
-              <TabPanel>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
-                  {selectedCatagories.slice(0,3).map((CatagoriesData) => (
-                    <ShopData
-                      key={CatagoriesData._id}
-                      CatagoriesData={CatagoriesData}
-                    ></ShopData>
-                  ))}
-                </div>
-              </TabPanel>
-            {/* main 2-2 */}
-              <TabPanel>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
-                  {selectedCatagories.slice(0,3).map((CatagoriesData) => (
-                    <ShopData
-                      key={CatagoriesData._id}
-                      CatagoriesData={CatagoriesData}
-                    ></ShopData>
-                  ))}
-                </div>
-              </TabPanel>
-              {/* main 2-3 */}
-              <TabPanel>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
-                  {selectedCatagories.slice(0,3).map((CatagoriesData) => (
-                    <ShopData
-                      key={CatagoriesData._id}
-                      CatagoriesData={CatagoriesData}
-                    ></ShopData>
-                  ))}
-                </div>
-              </TabPanel>
-            </Tabs>
-          </TabPanel>
-
-           {/* main 3  */}
-           <TabPanel>
-            <Tabs
-              defaultIndex={tabIndex}
-              onSelect={(index) => setTabIndex(index)}
-            >
-              <TabList className="grid grid-flow-col text-center gap-2 text-gray-500 bg-gray-100  p-1">
-                <Tab className="flex justify-center py-4 focus:outline-none cursor-pointer rounded-lg">
-                  Main Catagorieds 2 with Sub-1
-                </Tab>
-                <Tab className="flex justify-center py-4 focus:outline-none cursor-pointer rounded-lg">
-                  Main Catagorieds 2 with Sub-2
-                </Tab>
-                <Tab className="flex justify-center py-4 focus:outline-none cursor-pointer rounded-lg">
-                  Main Catagorieds 2 with Sub-3
-                </Tab>
-              </TabList>
-              {/* main 3-1 */}
-              <TabPanel>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
-                  {selectedCatagories.slice(0,3).map((CatagoriesData) => (
-                    <ShopData
-                      key={CatagoriesData._id}
-                      CatagoriesData={CatagoriesData}
-                    ></ShopData>
-                  ))}
-                </div>
-              </TabPanel>
-            {/* main 3-2 */}
-              <TabPanel>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
-                  {selectedCatagories.slice(0,3).map((CatagoriesData) => (
-                    <ShopData
-                      key={CatagoriesData._id}
-                      CatagoriesData={CatagoriesData}
-                    ></ShopData>
-                  ))}
-                </div>
-              </TabPanel>
-              {/* main 3-3 */}
-              <TabPanel>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
-                  {selectedCatagories.slice(0,3).map((CatagoriesData) => (
-                    <ShopData
-                      key={CatagoriesData._id}
-                      CatagoriesData={CatagoriesData}
-                    ></ShopData>
-                  ))}
-                </div>
-              </TabPanel>
-            </Tabs>
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
+              {selectedCatagories.slice(7, 11).map((CatagoriesData) => (
+                <ShopData
+                  key={CatagoriesData._id}
+                  CatagoriesData={CatagoriesData}
+                ></ShopData>
+              ))}
+            </div>
           </TabPanel>
         </Tabs>
       </div>

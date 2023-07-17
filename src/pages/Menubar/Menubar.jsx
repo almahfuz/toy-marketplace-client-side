@@ -46,21 +46,21 @@ const Menubar = () => {
             : "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-blueGray-700 hover:text-purple-600 hover:border-b-2 hover:border-purple-600 "
         }
       >
-       Gallery
+        Gallery
       </NavLink>
 
       {user?.email ? (
         <>
-           <NavLink
-        to="/allOfToy"
-        className={({ isActive }) =>
-          isActive
-            ? "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-purple-600 border-b-2 border-purple-600   "
-            : "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-blueGray-700 hover:text-purple-600 hover:border-b-2 hover:border-purple-600 "
-        }
-      >
-        All Toys
-      </NavLink>
+          <NavLink
+            to="/allOfToy"
+            className={({ isActive }) =>
+              isActive
+                ? "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-purple-600 border-b-2 border-purple-600   "
+                : "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-blueGray-700 hover:text-purple-600 hover:border-b-2 hover:border-purple-600 "
+            }
+          >
+            All Toys
+          </NavLink>
           <NavLink
             to="/mytoy"
             className={({ isActive }) =>
@@ -105,7 +105,7 @@ const Menubar = () => {
           log in
         </NavLink>
       )}
-      <NavLink
+      {/* <NavLink
         to="/"
         className={({ isActive }) =>
           isActive
@@ -114,7 +114,7 @@ const Menubar = () => {
         }
       >
         {user?.displayName}
-      </NavLink>
+      </NavLink> */}
       <NavLink
         to="/"
         className={({ isActive }) =>
@@ -123,19 +123,30 @@ const Menubar = () => {
             : "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-purple-600 outline-none focus:outline-none active:outline-none "
         }
       >
-        <span className="bg-blueGray-200  text-white outline-none ">
-          <img
-            className={`w-8 h-8 border outline-none focus:outline-none active:outline-none rounded-full object-cover  after:shadow-sm`}
-            src={user?.photoURL}
-          />
-        </span>
+        <NavLink className="px-3 flex items-center text-xs uppercase font-bold leading-snug  text-neutral-700 dark:text-neutral-200 hover:opacity-75">
+          <i className=" rounded text-lg leading-lg  text-neutral-700 dark:text-neutral-200 opacity-75">
+            <div className="group flex relative">
+              <span className=" text-white px-2 py-1 bg-blueGray-200  outline-none">
+                <img
+                   className={`w-8 h-8 border outline-none focus:outline-none active:outline-none rounded-full object-cover  after:shadow-sm`}
+                   src={user?.photoURL}
+                />
+              </span>
+              <span
+                className="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+    -translate-x-1/2 translate-y-full opacity-0 m-1 mx-auto"
+              >
+                {user?.displayName}
+              </span>
+            </div>
+          </i>
+        </NavLink>
       </NavLink>
     </>
   );
 
   return (
     <div>
-      
       <div className=" text-black ">
         <div className="bg-blueGray-200 px-2 md:px-4 shadow">
           <div className="container px-1 md:px-4 ">

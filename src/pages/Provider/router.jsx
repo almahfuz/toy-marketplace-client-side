@@ -12,6 +12,7 @@ import SingleToy from "../SingleToy/SingleToy";
 import UpdateToy from "../UpdateToy/UpdateToy";
 import ErrorPage from "../../Layout/Error/ErrorPage";
 import AllOfToy from "../../Layout/AllOfToy/AllOfToy";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,21 +37,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/mytoy",
-        element: <MyToy/>,
+        element: <PrivateRoute> <MyToy/></PrivateRoute>,
       },
       {
         path: "/singleToyDetails/:id",
-        element: <SingleToy/>,
+        element: <PrivateRoute><SingleToy/></PrivateRoute>,
         loader: ({params}) => fetch(`https://toy-market-sever-omega.vercel.app/singleToyDetails/${params.id}`)
 
       },
       {
         path: "/AddedNewToy",
-        element: <AddToy />,
+        element: <PrivateRoute><AddToy /></PrivateRoute>,
       },
       {
         path: "/toyData/:id",
-        element: <UpdateToy />,
+        element: <PrivateRoute><UpdateToy /></PrivateRoute>,
         loader: ({params}) => fetch(`https://toy-market-sever-omega.vercel.app/toyData/${params.id}`)
       },
       {

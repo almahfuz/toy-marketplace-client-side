@@ -8,7 +8,7 @@ const ExtraPage = () => {
           className="inset-0 h-screen bg-cover bg-center object-contain"
           style={{ backgroundImage: `url(${Banner1})` }}
         ></div>
-        <div className="absolute inset-0 z-20 flex items-center justify-center h-screen w-full bg-gray-900 bg-opacity-75"></div>
+        <div className="absolute inset-0 z-20 flex items-center justify-center h-screen w-full bg-blueGray-200 bg-opacity-75"></div>
         <div className="absolute inset-0  z-30  flex flex-col items-center justify-center">
           <div
             className="shadow-2xl rounded-lg w-4/5 h-96 bg-cover bg-center object-contain"
