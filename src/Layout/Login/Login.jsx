@@ -4,6 +4,7 @@ import Swal from 'sweetalert2'
 import Sociallogin from "../socialLogin/Sociallogin";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../pages/Provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -47,6 +48,9 @@ const Login = () => {
   };
   return (
     <div>
+        <Helmet>
+        <title>Toy Market | Log in </title>
+      </Helmet>
       <div class="h-screen flex">
         <div
           class="hidden lg:flex w-full lg:w-1/2 login_img_section

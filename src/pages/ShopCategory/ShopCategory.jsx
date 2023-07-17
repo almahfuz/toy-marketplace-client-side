@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import "../ShopCategory/shopCatagory.css";
-import AllToyData from "../AllToy/AllToyData";
+import AllToyData from "../AllToyEx/AllToyData";
 import ShopData from "./ShopData/ShopData";
 const ShopCategory = () => {
   const [tabIndex, setTabIndex] = useState(0);

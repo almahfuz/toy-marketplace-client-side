@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 
 const SingleToy = () => {
@@ -16,6 +17,9 @@ const SingleToy = () => {
   } = singleDataToy;
   return (
     <div className="px-10 pt-10 min-h-[calc(100vh-136px)]">
+        <Helmet>
+        <title>Toy Market | Toy Details </title>
+      </Helmet>
       <div className="card lg:card-side bg-base-100 shadow-xl container m-auto grid grid-cols-1 md:grid-cols-2 gap-3">
         <figure>
           <img

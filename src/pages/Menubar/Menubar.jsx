@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import logo from "../../../public/toy-logo.png";
 
 const Menubar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -38,7 +39,7 @@ const Menubar = () => {
       </NavLink>
 
       <NavLink
-        to="/alltoy"
+        to="/allOfToy"
         className={({ isActive }) =>
           isActive
             ? "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-purple-600 border-b-2 border-purple-600   "
@@ -104,14 +105,14 @@ const Menubar = () => {
       >
         {user?.displayName}
       </NavLink>
-      <NavLink  to="/"
+      <NavLink
+        to="/"
         className={({ isActive }) =>
           isActive
             ? "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-purple-600 border-b-2  "
             : "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-purple-600 outline-none focus:outline-none active:outline-none "
         }
       >
-       
         <span className="bg-blueGray-200  text-white outline-none ">
           <img
             className={`w-8 h-8 border outline-none focus:outline-none active:outline-none rounded-full object-cover  after:shadow-sm`}
@@ -124,13 +125,17 @@ const Menubar = () => {
 
   return (
     <div>
+      
       <div className=" text-black ">
         <div className="bg-blueGray-200 px-2 md:px-4 shadow">
           <div className="container px-1 md:px-4 ">
             <div className="flex items-center justify-between py-4">
               <Link to="/">
-                <div className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase">
-                  Decode construction toy
+                <div className="flex items-center">
+                  <img className="h-12 w-12 object-contain" src={logo} alt="" />
+                  <span className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase">
+                    Decode construction toy
+                  </span>
                 </div>
               </Link>
 

@@ -1,5 +1,6 @@
 import { Rating } from "flowbite-react";
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -67,6 +68,9 @@ const UpdateToy = () => {
 
   return (
     <div className=" px-10 md:px-12 pt-5">
+        <Helmet>
+        <title>Toy Market | Update Toy </title>
+      </Helmet>
       <form onSubmit={handleUpdateToy} className="w-full py-10">
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">

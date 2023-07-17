@@ -3,17 +3,20 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../../Layout/Main/MainLayout/MainLayout";
 import Home from "../Home/Home";
 import Blog from "../Blog/Blog";
-import AllToy from "../AllToy/AllToy";
+import AllToy from "../AllToyEx/AllToy";
 import MyToy from "../MyToy/MyToy";
 import AddToy from "../AddToy/AddToy";
 import Login from "../../Layout/Login/Login";
 import Signup from "../../Layout/Signup/Signup";
 import SingleToy from "../SingleToy/SingleToy";
 import UpdateToy from "../UpdateToy/UpdateToy";
+import ErrorPage from "../../Layout/Error/ErrorPage";
+import AllOfToy from "../../Layout/AllOfToy/AllOfToy";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    // errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -24,8 +27,8 @@ const router = createBrowserRouter([
         element: <Blog />,
       },
       {
-        path: "/alltoy",
-        element: <AllToy/>,
+        path: "/allOfToy",
+        element: <AllOfToy/>,
       },
       {
         path: "/mytoy",

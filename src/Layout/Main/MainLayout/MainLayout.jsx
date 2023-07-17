@@ -5,7 +5,7 @@ import Footer from '../../../assets/shared/Footer/Footer';
 
 const MainLayout = () => {
     return (
-        <div>
+        <div>      
             <Menubar></Menubar>
             <Outlet></Outlet>
             <Footer></Footer>

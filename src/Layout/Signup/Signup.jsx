@@ -4,6 +4,7 @@ import Sociallogin from "../socialLogin/Sociallogin";
 import "./Singup.css";
 import Swal from 'sweetalert2'
 import { AuthContext } from "../../pages/Provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Signup = () => {
   const { registerCreateUser, ProfileUserInfo } = useContext(AuthContext);
@@ -70,6 +71,9 @@ const Signup = () => {
 
   return (
     <div className="h-screen flex">
+        <Helmet>
+        <title>Toy Market | Sign up </title>
+      </Helmet>
       <div
         className="hidden lg:flex w-full lg:w-1/2 login_img_section
       justify-around items-center"

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MyToyTab from "./MyToyTab";
 import Swal from 'sweetalert2'
+import { Helmet } from "react-helmet-async";
 
 const MyToy = () => {
   // const { user } = useContext(AuthContext);
@@ -50,6 +51,9 @@ const MyToy = () => {
 }
   return (
     <div>
+        <Helmet>
+        <title>Toy Market | My Toy </title>
+      </Helmet>
       <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
         <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
           <thead className="bg-gray-50">

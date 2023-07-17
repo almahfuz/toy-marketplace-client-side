@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import Swal from 'sweetalert2'
 
 const AddToy = () => {
@@ -52,6 +53,9 @@ const AddToy = () => {
 
   return (
     <div className=" px-10 md:px-12 pt-5">
+        <Helmet>
+        <title>Toy Market | Add a Toy </title>
+      </Helmet>
       <form onSubmit={handleAddToy} className="w-full py-10">
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
