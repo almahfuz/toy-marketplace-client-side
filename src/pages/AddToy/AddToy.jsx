@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Helmet } from "react-helmet-async";
+import { useLoaderData } from "react-router-dom";
 import Swal from 'sweetalert2'
+import { AuthContext } from "../Provider/AuthProvider";
 
 const AddToy = () => {
+  const {user} = useContext(AuthContext);
+
   const handleAddToy = (event) => {
     event.preventDefault();
     const form = event.target;
 
     const ToyName = form.ToyName.value;
-    const SellerName = form.SellerName.value;
-    const SellerEmail = form.SellerEmail.value;
+    const SellerName = form.displayName.value;
+    // const SellerEmail = form.SellerEmail.value;
+    const SellerEmail =user?.email;
     const SubCategory = form.SubCategory.value;
     const Price = form.Price.value;
     const Rating = form.Rating.value;
@@ -19,18 +24,18 @@ const AddToy = () => {
 
     const AddedNewToy = {
       ToyName,
-      SellerName,
+      SellerName: SellerName,
+      SellerEmail: SellerEmail,
       SubCategory,
       Price,
       Rating,
       AvailableQuantity,
       DetailDescription,
       ImagesURL,
-      SellerEmail,
     };
     console.log(AddedNewToy);
 
-    fetch("https://toy-market-sever-omega.vercel.app/AddedNewToy", {
+    fetch("https://toy-market-sever-almahfuz.vercel.app/AddedNewToy", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -106,7 +111,9 @@ const AddToy = () => {
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-first-name"
               type="text"
-              name="SellerName"
+              // name="SellerName"
+              name="displayName"
+              defaultValue={user?.displayName}
               placeholder="seller name"
               required
             />
@@ -140,7 +147,8 @@ const AddToy = () => {
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-first-name"
               type="text"
-              name="SellerEmail"
+              defaultValue={user?.email}
+              // name="SellerEmail"
               placeholder="seller Email"
               required
             />

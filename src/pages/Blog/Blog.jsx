@@ -9,7 +9,7 @@ const Blog = () => {
       </Helmet>
       <div className="p-6">
         <div>
-          <p className="pt-3">
+          <p className="pt-3 font-semibold">
             What is an access token and refresh token? How do they work and
             where should we store them on the client-side?
           </p>
@@ -21,7 +21,7 @@ const Blog = () => {
           </p>
         </div>
         <div>
-          <p className="pt-3">Compare SQL and NoSQL databases?</p>
+          <p className="pt-3 font-semibold">Compare SQL and NoSQL databases?</p>
           <p className="pt-1">
             Structured Query Language (SQL) is a programming language that
             allows both technical and non-technically-minded users to query,
@@ -46,7 +46,7 @@ const Blog = () => {
           </p>
         </div>
         <div>
-          <p className="pt-3">What is express js? What is Nest JS?</p>
+          <p className="pt-3 font-semibold">What is express js? What is Nest JS?</p>
           <p className="pt-1">
             Express is a node js web application framework that provides broad
             features for building web and mobile applications. It is used to
@@ -58,7 +58,7 @@ const Blog = () => {
           </p>
         </div>
         <div>
-          <p className="pt-3">What is MongoDB aggregate and how does it work</p>
+          <p className="pt-3 font-semibold">What is MongoDB aggregate and how does it work?</p>
           <p className="pt-1">
             MongoDB Aggregation is a way of processing a large number of
             documents in a collection by means of passing them through different

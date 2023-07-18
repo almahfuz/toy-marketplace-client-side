@@ -10,7 +10,7 @@ const ShopCategory = () => {
   const [selectedCatagories, setSelectedCatagories] = useState([]);
 
   useEffect(() => {
-    fetch("https://toy-market-sever-omega.vercel.app/alltoy")
+    fetch("https://toy-market-sever-almahfuz.vercel.app/alltoy")
       .then((res) => res.json())
       .then((data) => setSelectedCatagories(data));
   });
@@ -59,7 +59,7 @@ const ShopCategory = () => {
 
           <TabPanel>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
-              {selectedCatagories.slice(7, 11).map((CatagoriesData) => (
+              {selectedCatagories.slice(7, 10).map((CatagoriesData) => (
                 <ShopData
                   key={CatagoriesData._id}
                   CatagoriesData={CatagoriesData}

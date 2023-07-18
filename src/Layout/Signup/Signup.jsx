@@ -53,20 +53,7 @@ const Signup = () => {
           console.log(err.message);
         });
     }
-    // if ((displayName, photoURL)) {
-    //   ProfileUserInfo(displayName, photoURL)
-    //     .then((result) => {
-    //       console.log(result.user);
-    //       console.log('profile updated successfully ');
-    //       // navigate("/");
-    //       setDisplayName(displayName);
-    //       setPhotoURL(photoURL)
-    //       //  console.log(result.user);
-    //     })
-    //     .catch((err) => {
-    //       console.log(err.message);
-    //     });
-    // }
+   
   };
 
   return (

@@ -59,6 +59,7 @@ const MyToyTab = ({ myToyTab,handleDelete }) => {
               </a>
               </button>
             </Link>
+            
             <Link to={`/toyData/${_id}`}>
             <button className=" focus:outline-none">
               <a x-data="{ tooltip: 'Edit' }">

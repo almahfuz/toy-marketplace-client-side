@@ -37,7 +37,16 @@ const Menubar = () => {
       >
         Blog
       </NavLink>
-
+      <NavLink
+        to="/allOfToy"
+        className={({ isActive }) =>
+          isActive
+            ? "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-purple-600 border-b-2 border-purple-600   "
+            : "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-blueGray-700 hover:text-purple-600 hover:border-b-2 hover:border-purple-600 "
+        }
+      >
+        All Toys
+      </NavLink>
       <NavLink
         to="/alltoy"
         className={({ isActive }) =>
@@ -48,19 +57,10 @@ const Menubar = () => {
       >
         Gallery
       </NavLink>
+     
 
       {user?.email ? (
         <>
-          <NavLink
-            to="/allOfToy"
-            className={({ isActive }) =>
-              isActive
-                ? "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-purple-600 border-b-2 border-purple-600   "
-                : "py-1 px-1 m-1 text-xs font-bold  whitespace-nowrap uppercase text-blueGray-700 hover:text-purple-600 hover:border-b-2 hover:border-purple-600 "
-            }
-          >
-            All Toys
-          </NavLink>
           <NavLink
             to="/mytoy"
             className={({ isActive }) =>
@@ -128,8 +128,8 @@ const Menubar = () => {
             <div className="group flex relative">
               <span className=" text-white px-2 py-1 bg-blueGray-200  outline-none">
                 <img
-                   className={`w-8 h-8 border outline-none focus:outline-none active:outline-none rounded-full object-cover  after:shadow-sm`}
-                   src={user?.photoURL}
+                  className={`w-8 h-8 border outline-none focus:outline-none active:outline-none rounded-full object-cover  after:shadow-sm`}
+                  src={user?.photoURL}
                 />
               </span>
               <span

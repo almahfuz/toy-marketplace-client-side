@@ -10,13 +10,13 @@ const AllOfToy = () => {
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    fetch(`https://toy-market-sever-omega.vercel.app/alltoy`)
+    fetch(`https://toy-market-sever-almahfuz.vercel.app/allToyDetails`)
       .then((res) => res.json())
       .then((data) => setSearchName(data));
   }, [user]);
 
   const handleSearch = () => {
-    fetch(`https://toy-market-sever-omega.vercel.app/getSearchText/${searchText}`)
+    fetch(`https://toy-market-sever-almahfuz.vercel.app/getSearchText/${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

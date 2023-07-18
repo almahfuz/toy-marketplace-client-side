@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const Gallery = () => {
   const [SearchName, setSearchName] = useState([]);
   useEffect(() => {
-    fetch(`https://toy-market-sever-omega.vercel.app/alltoy`)
+    fetch(`https://toy-market-sever-almahfuz.vercel.app/alltoy`)
       .then((res) => res.json())
       .then((data) => setSearchName(data));
   }, []);

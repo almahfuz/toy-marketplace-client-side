@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MyToyTab from "./MyToyTab";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 
 const MyToy = () => {
@@ -10,48 +10,40 @@ const MyToy = () => {
   const [deletedToy, setDeletedToy] = useState([]);
 
   useEffect(() => {
-    fetch("https://toy-market-sever-omega.vercel.app/alltoy")
+    fetch(`https://toy-market-sever-almahfuz.vercel.app/alltoy`)
       .then((res) => res.json())
       .then((data) => setMyToyTab(data));
-  }, []);
+  }, [myToyTab]);
 
-  const handleDelete = _id => {
+  const handleDelete = (_id) => {
     Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
-        if (result.isConfirmed) {
-            fetch(`https://toy-market-sever-omega.vercel.app/mytoy/${_id}`, {
-               method: 'DELETE'
-            })
-               .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-
-                    if (data.deletedCount > 0) {
-
-                        Swal.fire(
-                            'Deleted!',
-                            'Your Toy has been deleted.',
-                            'success'
-                        )
-                        const remaining = deletedToy.filter(toy => toy._id !== _id);
-                        setDeletedToy(remaining);
-                    }
-                })
-          
-
-        }
-    })
-}
+      if (result.isConfirmed) {
+        fetch(`https://toy-market-sever-almahfuz.vercel.app/mytoy/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your Toy has been deleted.", "success");
+              const remaining = deletedToy.filter((toy) => toy._id !== _id);
+              setDeletedToy(remaining);
+            }
+          });
+      }
+    });
+  };
   return (
     <div>
-        <Helmet>
+      <Helmet>
         <title>Toy Market | My Toy </title>
       </Helmet>
       <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
@@ -71,10 +63,9 @@ const MyToy = () => {
                 {" "}
                 Descriptions
               </th>
-              <th
-                scope="col"
-                className="px-6 py-4 font-medium text-gray-900"
-              ></th>
+              <th scope="col" className="px-6 py-4 font-medium text-gray-900">
+                Action
+              </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100 border-t border-gray-100 overflow-y-auto">

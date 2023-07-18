@@ -87,6 +87,7 @@ const Login = () => {
                   name="email"
                   placeholder="Email Address"
                 />
+                
               </div>
               <div class="flex items-center border-2 mb-5 py-2 px-3 rounded-2xl ">
                
@@ -96,6 +97,7 @@ const Login = () => {
                   type="password"
                   placeholder="Password"
                 />
+                 <p className="text-[10px] text-rose-700">{error}</p>
               </div>
               <button
                  onClick={handleWithLogIn}
