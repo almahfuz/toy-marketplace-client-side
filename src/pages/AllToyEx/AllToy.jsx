@@ -1,12 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AllToyData from "./AllToyData";
 import { Helmet } from "react-helmet-async";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const AllToy = () => {
   const [allToyData, setAllToyData] = useState([]);
+  const { loading } = useContext(AuthContext);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center  items-center">
+        <span className="loading loading-bars loading-xs"></span>
+        <span className="loading loading-bars loading-sm"></span>
+        <span className="loading loading-bars loading-md"></span>
+        <span className="loading loading-bars loading-lg"></span>
+      </div>
+    );
+  }
 
   useEffect(() => {
-    fetch("https://toy-market-sever-almahfuz.vercel.app/alltoy")
+    fetch("https://toy-market-sever-omega.vercel.app/alltoy")
       .then((res) => res.json())
       .then((data) => setAllToyData(data));
   }, []);

@@ -4,25 +4,39 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../pages/Provider/AuthProvider';
 
 const AllOfToy = () => {
-    const { user } = useContext(AuthContext);
-
+  const { user,loading, setLoading } = useContext(AuthContext);
   const [SearchName, setSearchName] = useState([]);
   const [searchText, setSearchText] = useState("");
+  
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 5000)
+  }, []);
 
   useEffect(() => {
-    fetch(`https://toy-market-sever-almahfuz.vercel.app/allToyDetails`)
+    fetch(`https://toy-market-sever-omega.vercel.app/allToyDetails`)
       .then((res) => res.json())
       .then((data) => setSearchName(data));
   }, [user]);
 
   const handleSearch = () => {
-    fetch(`https://toy-market-sever-almahfuz.vercel.app/getSearchText/${searchText}`)
+    fetch(`https://toy-market-sever-omega.vercel.app/getSearchText/${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         setSearchName(data);
       });
   };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center  items-center">
+        <span className="loading loading-bars loading-xs"></span>
+        <span className="loading loading-bars loading-sm"></span>
+        <span className="loading loading-bars loading-md"></span>
+        <span className="loading loading-bars loading-lg"></span>
+      </div>
+    );
+  }
     return (
         <div className="min-h-[calc(100vh-136px)]">
         <Helmet>
@@ -117,7 +131,7 @@ const AllOfToy = () => {
              <td className="px-4 py-4">
                <div className="inline-flex rounded-xl">
                <Link to={`/singleToyDetails/${ToyList._id}`}>
-              <button class="btn   bg-orange-100 py-1 px-3 focus:outline-none  hover:bg-orange-200">
+              <button className="btn   bg-orange-100 py-1 px-3 focus:outline-none  hover:bg-orange-200">
                 View Details
               </button>
             </Link>

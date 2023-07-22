@@ -5,7 +5,18 @@ import Swal from 'sweetalert2'
 import { AuthContext } from "../Provider/AuthProvider";
 
 const AddToy = () => {
-  const {user} = useContext(AuthContext);
+  const {user,loading} = useContext(AuthContext);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center  items-center">
+        <span className="loading loading-bars loading-xs"></span>
+        <span className="loading loading-bars loading-sm"></span>
+        <span className="loading loading-bars loading-md"></span>
+        <span className="loading loading-bars loading-lg"></span>
+      </div>
+    );
+  }
 
   const handleAddToy = (event) => {
     event.preventDefault();
@@ -35,7 +46,7 @@ const AddToy = () => {
     };
     console.log(AddedNewToy);
 
-    fetch("https://toy-market-sever-almahfuz.vercel.app/AddedNewToy", {
+    fetch("https://toy-market-sever-omega.vercel.app/AddedNewToy", {
       method: "POST",
       headers: {
         "content-type": "application/json",

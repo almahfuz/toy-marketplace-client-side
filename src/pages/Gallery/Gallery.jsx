@@ -1,9 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Gallery = () => {
   const [SearchName, setSearchName] = useState([]);
+  const { loading } = useContext(AuthContext);
+  if (loading) {
+    return (
+      <div className="flex justify-center  items-center">
+        <span className="loading loading-bars loading-xs"></span>
+        <span className="loading loading-bars loading-sm"></span>
+        <span className="loading loading-bars loading-md"></span>
+        <span className="loading loading-bars loading-lg"></span>
+      </div>
+    );
+  }
   useEffect(() => {
-    fetch(`https://toy-market-sever-almahfuz.vercel.app/alltoy`)
+    fetch(`https://toy-market-sever-omega.vercel.app/alltoy`)
       .then((res) => res.json())
       .then((data) => setSearchName(data));
   }, []);
@@ -19,7 +31,7 @@ const Gallery = () => {
         <div className="bg-white py-6 sm:py-8 lg:py-12">
           <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3  xl:gap-8">
-              {SearchName?.slice(2,8).map((ToyList) => (
+              {SearchName?.slice(2, 8).map((ToyList) => (
                 <a
                   href="#"
                   className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"

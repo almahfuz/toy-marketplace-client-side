@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       {
         path: "/singleToyDetails/:id",
         element: <PrivateRoute><SingleToy/></PrivateRoute>,
-        loader: ({params}) => fetch(`https://toy-market-sever-almahfuz.vercel.app/singleToyDetails/${params.id}`)
+        loader: ({params}) => fetch(`https://toy-market-sever-omega.vercel.app/singleToyDetails/${params.id}`)
 
       },
       {
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
       {
         path: "/toyData/:id",
         element: <PrivateRoute><UpdateToy /></PrivateRoute>,
-        loader: ({params}) => fetch(`https://toy-market-sever-almahfuz.vercel.app/toyData/${params.id}`)
+        loader: ({params}) => fetch(`https://toy-market-sever-omega.vercel.app/toyData/${params.id}`)
       },
       {
         path: "/login",

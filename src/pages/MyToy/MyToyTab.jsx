@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const MyToyTab = ({ myToyTab,handleDelete }) => {
@@ -11,7 +10,7 @@ const MyToyTab = ({ myToyTab,handleDelete }) => {
     Price,
     AvailableQuantity,
   } = myToyTab;
- 
+
   return (
     <>
       <tr className="hover:bg-gray-50 overflow-y-auto">

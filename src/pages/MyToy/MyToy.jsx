@@ -1,16 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MyToyTab from "./MyToyTab";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const MyToy = () => {
-  // const { user } = useContext(AuthContext);
+  const { loading, setLoading } = useContext(AuthContext);
   const [myToyTab, setMyToyTab] = useState([]);
   const [deletedToy, setDeletedToy] = useState([]);
-
+  
   useEffect(() => {
-    fetch(`https://toy-market-sever-almahfuz.vercel.app/alltoy`)
+    setTimeout(() => setLoading(false), 5000)
+  }, []);
+  
+  if (loading) {
+    return (
+      <div className="flex justify-center  items-center">
+        <span className="loading loading-bars loading-xs"></span>
+        <span className="loading loading-bars loading-sm"></span>
+        <span className="loading loading-bars loading-md"></span>
+        <span className="loading loading-bars loading-lg"></span>
+      </div>
+    );
+  }
+  useEffect(() => {
+    fetch(`https://toy-market-sever-omega.vercel.app/alltoy`)
       .then((res) => res.json())
       .then((data) => setMyToyTab(data));
   }, [myToyTab]);
@@ -26,7 +41,7 @@ const MyToy = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://toy-market-sever-almahfuz.vercel.app/mytoy/${_id}`, {
+        fetch(`https://toy-market-sever-omega.vercel.app/mytoy/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

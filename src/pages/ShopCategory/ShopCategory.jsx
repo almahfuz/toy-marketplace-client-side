@@ -1,16 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import "../ShopCategory/shopCatagory.css";
 import AllToyData from "../AllToyEx/AllToyData";
 import ShopData from "./ShopData/ShopData";
+import { AuthContext } from "../Provider/AuthProvider";
 const ShopCategory = () => {
+  const { loading, setLoading } = useContext(AuthContext);
   const [tabIndex, setTabIndex] = useState(0);
 
   const [selectedCatagories, setSelectedCatagories] = useState([]);
-
+  
   useEffect(() => {
-    fetch("https://toy-market-sever-almahfuz.vercel.app/alltoy")
+    setTimeout(() => setLoading(false), 5000)
+  }, []);
+  
+  if (loading) {
+    return (
+      <div className="flex justify-center  items-center">
+        <span className="loading loading-bars loading-xs"></span>
+        <span className="loading loading-bars loading-sm"></span>
+        <span className="loading loading-bars loading-md"></span>
+        <span className="loading loading-bars loading-lg"></span>
+      </div>
+    );
+  }
+  useEffect(() => {
+    fetch("https://toy-market-sever-omega.vercel.app/alltoy")
       .then((res) => res.json())
       .then((data) => setSelectedCatagories(data));
   });
