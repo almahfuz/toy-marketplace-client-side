@@ -4,14 +4,10 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../pages/Provider/AuthProvider';
 
 const AllOfToy = () => {
-  const { user,loading, setLoading } = useContext(AuthContext);
+  const { user,loading } = useContext(AuthContext);
   const [SearchName, setSearchName] = useState([]);
   const [searchText, setSearchText] = useState("");
   
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 5000)
-  }, []);
-
   useEffect(() => {
     fetch(`https://toy-market-sever-omega.vercel.app/allToyDetails`)
       .then((res) => res.json())

@@ -6,6 +6,12 @@ import { AuthContext } from "../Provider/AuthProvider";
 const AllToy = () => {
   const [allToyData, setAllToyData] = useState([]);
   const { loading } = useContext(AuthContext);
+  
+  useEffect(() => {
+    fetch("https://toy-market-sever-omega.vercel.app/alltoy")
+      .then((res) => res.json())
+      .then((data) => setAllToyData(data));
+  }, []);
 
   if (loading) {
     return (
@@ -17,13 +23,6 @@ const AllToy = () => {
       </div>
     );
   }
-
-  useEffect(() => {
-    fetch("https://toy-market-sever-omega.vercel.app/alltoy")
-      .then((res) => res.json())
-      .then((data) => setAllToyData(data));
-  }, []);
-
   return (
     <div className="min-h-[calc(100vh-136px)]">
       <Helmet>

@@ -8,12 +8,8 @@ import ExtraPage from "../../assets/shared/Extra/ExtraPage";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Home = () => {
-  const { loading, setLoading } = useContext(AuthContext);
+  const { loading } = useContext(AuthContext);
  
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 5000)
-  }, []);
-
   if (loading) {
     return (
       <div className="flex justify-center  items-center">
