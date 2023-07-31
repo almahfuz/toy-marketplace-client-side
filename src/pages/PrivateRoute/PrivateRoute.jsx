@@ -6,8 +6,8 @@ const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   let location = useLocation();
   const from = location?.state?.from?.pathname || "/";
-  if (!loading) {
-   return <div className="flex justify-center  items-center">
+  if (loading) {
+   return <div className="flex justify-center  items-center min-h-[calc(100vh-136px)]">
       <span className="loading loading-bars loading-xs"></span>
       <span className="loading loading-bars loading-sm"></span>
       <span className="loading loading-bars loading-md"></span>

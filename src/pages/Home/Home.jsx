@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Gallery from "../Gallery/Gallery";
 import Banner from "../Banner/Banner";
 import ShopCategory from "../ShopCategory/ShopCategory";
@@ -9,10 +9,17 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const Home = () => {
   const { loading } = useContext(AuthContext);
+  const [isFetching, setIsFetching] = useState(true); 
  
-  if (loading) {
+  useEffect(() => {
+    setTimeout(function () {
+      setIsFetching(false); 
+    }, 8000);
+  }, []);
+
+  if (isFetching) {
     return (
-      <div className="flex justify-center  items-center">
+      <div className="flex justify-center  items-center min-h-[calc(100vh-136px)]">
         <span className="loading loading-bars loading-xs"></span>
         <span className="loading loading-bars loading-sm"></span>
         <span className="loading loading-bars loading-md"></span>
