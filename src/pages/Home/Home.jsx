@@ -14,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     setTimeout(function () {
       setIsFetching(false); 
-    }, 8000);
+    }, 3000);
   }, []);
 
   if (isFetching) {
