@@ -18,17 +18,17 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const registerCreateUser = (email, password) => {
-    setLoading(true);
+    // setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const signIn = (email, password) => {
-    setLoading(true);
+    // setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const ProfileUserInfo = (displayName, photoURL) => {
-    setLoading(true);
+    // setLoading(true);
     return updateProfile(auth.currentUser, {
       displayName: displayName,
       photoURL: photoURL,
@@ -36,7 +36,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const logOut = () => {
-    setLoading(true);
+    // setLoading(true);
     return signOut(auth);
   };
 
